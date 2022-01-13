@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="centre">
+    <h1><?php echo $view->pageTitle ?></h1>
+    <form action="index.php" method="post">
+        <div class="txt_field">
+            <input type="text" name="email" required>
+            <label>Email</label>
+        </div>
+        <div class="txt_field">
+            <input type="Password" name="password" required>
+            <label>Password</label>
+        </div>
+        
+        <button type="submit" name="button-login">Login</button>
+        <div class="signup_link">
+            Not a member? <a href="signup.php">SignUp</a>
+        </div>
 
+    </form>
+
+</div>
+
+</body>
+</html>
