@@ -15,6 +15,7 @@ if (isset($_POST["button-login"])) {
     $login = new User();
     //$loginDataSet = $login->fetchUserPassword($userEmail, $password);
     $login->loginUser($userEmail, $password);
+    $login2->loginAdmin($userEmail, $password);
    /* if ($loginDataSet != null) {
         $_SESSION["login"] = $FirstName;
 //        echo "You are logged in <a href='home.php'>User Page</a>";
