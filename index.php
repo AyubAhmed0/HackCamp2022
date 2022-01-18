@@ -1,12 +1,7 @@
 <?php
 $view = new stdClass();
 $view->pageTitle = 'Login';
-require('Models/User.php');
-if(isset($_SESSION['email'])){
-    header('Location: dashboard.php');
-    //echo '<h1>current user email is:'.$_SESSION['email'].'</h1>';
-    exit;
-}
+require 'Models/User.php' ;
 if (isset($_POST["button-login"])) {
     
     $userEmail = $_POST["email"];
@@ -20,4 +15,9 @@ if (isset($_POST["button-login"])) {
     $login->loginUser($userEmail, $password);
     //$login2->loginAdmin($userEmail, $password);
 }
-require('Views/index.phtml');
+if(isset($_SESSION['email'])){
+    header('Location: dashboard.php');
+    //echo '<h1>current user email is:'.$_SESSION['email'].'</h1>';
+    exit;
+}
+require 'Views/index.phtml';
