@@ -50,7 +50,7 @@ class User
                     'email' => $row['email']
                 ];
                 //echo '<h1 class="p-3 mb-2 bg-danger text-white"><br>Success!<br></h1>';
-               header('Location: Views/dashboardV.phtml');
+               header('Location: dashboard.php');
             }
             else
             {
