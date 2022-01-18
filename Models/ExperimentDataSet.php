@@ -1,7 +1,7 @@
 <?php
-require_once('Models/UserData.php');
+require_once('Models/ExperimentData.php');
 require_once('Models/Database.php');
-class UserDataSet
+class ExperimentDataSet
 {
     protected $_dbHandle, $_dbInstance;
 
@@ -19,7 +19,18 @@ class UserDataSet
         $statement->execute();
         $dataSet = [];
         while ($row = $statement->fetch()) {
-            $dataSet[] = new UserData($row);
+            $dataSet[] = new ExperimentData($row);
+        }
+        return $dataSet;
+    }
+    public function fetchAllExperiments()
+    {
+        $sqlQuery = 'SELECT * FROM experiment';
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->execute();
+        $dataSet = [];
+        while ($row = $statement->fetch()) {
+            $dataSet[] = new ExperimentData($row);
         }
         return $dataSet;
     }

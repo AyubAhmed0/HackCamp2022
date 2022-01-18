@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/userDashboard.css">
+    <title>Document</title>
+    
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+<body class="body-background">
+
+<!--
+<div class="sidenav">
+ 
+<img src="pngegg3.png" width="460" height="345">
+  <a href="#">Profile</a>
+  <a href="#">Surveys</a>
+  <a href="#">Polls</a>
+  <a href="#">Contact</a>
+</div>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<img src="pngegg3.png" width="460" height="345">
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "300px";
+  document.getElementById("main").style.marginLeft = "300px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+-->
+
+<div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+		<img src="../images/pngegg3.png" width="460" height="345">
+            </div>
+
+            <ul class="list-unstyled components text-center">
+                <li class="sidebarhov">
+                    <a href="#">Home</a>
+                </li>
+                <li id="sidebarexp1">
+                    <a href="#">Surveys</a>
+                </li>
+                <li id="sidebarexp2">
+                    <a href="#">Polls</a>
+                </li>
+				<li id="sidebarexp3">
+                    <a href="#">Prototypes</a>
+                </li>
+				<li id="sidebarexp4">
+                    <a href="#">Discussions</a>
+                </li>
+            </ul>
+			<ul class="list-unstyled components text-center ">
+                <li>
+                    <a href="../logout.php" class="sidebarhov">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+
+
+
+
+
+<div class="header body-background3">
+<div class="d-flex justify-content-between">
+    <div class="p-2 align-self-center">
+<button type="button" id="sidebarCollapse" class="sidebutton-hover sidebutton">
+                        <i class="fas fa-align-left"></i>
+                        <span>Sidebar</span>
+                    </button></div>
+    <div class="p-2 align-self-center">
+<a class="logo" >Dashboard</a></div>
+    <div class="p-2"></div>
+  </div>
+</div>
+
+<div class="row justify-content-center mt-4">
+  <div class="col col-md-auto">
+<a href="/"><button class="bn632-hover bn28" >Surveys</button></a>
+</div>
+  <div class="col col-md-auto">
+<a href="/"><button class="bn631-hover bn28" >Polls</button></a></div>
+  
+  <div class="col col-md-auto">
+<a href="/"><button class="bn630-hover bn28" >Prototypes</button></a></div>
+<div class="col col-md-auto">
+<a href="/"><button class="bn633-hover bn28" >Discussions</button></a></div>
+</div>
+	<?php 
+//echo 'Hello';
+    foreach ($view->ExperimentDataSet as $row) {
+        //echo 'Hello';
+ echo '<div class="row">
+    <div class="col">
+	  <div class="container py-4">
+		  <article class="postcard dark green">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title green "><a href="#">'.$row->getName().'</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="">
+						  <i class="fas fa-calendar-alt mr-2"></i>'.$row->getDate().'
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">'.$row->getDescription().'</div>
+				  <ul class="postcard__tagbox">
+                        <li class="tag__item  green2">
+						  <a><i class="fas mr-2"></i>'.$row->getType().'</a>
+					  </li>
+					 <li class="tag__item"><i class="fas fa-clock mr-2"></i>'.$row->getTotalTime().' mins.</li>
+					  <li class="tag__item play green">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Start '.$row->getType().'</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article>
+        </div>
+    </div>
+ </div>'; }
+ ?>
+		  <div class="row">
+<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark green">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title green "><a href="#">Prototype Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+                        
+					  <li class="tag__item"><i class="fas fa-tag mr-2 green2"></i>Prototype</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play green">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Prototype</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+  <div class="col">
+	  
+	<div class="container py-4">
+		<article class="postcard dark blue">
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a href="#">Experiment Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox"> 
+					<li class="tag__item"><i class="fas fa-tag mr-2 blue2"></i>Poll</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Do Poll</a>
+					</li>
+				</ul>
+			</div>
+		</article></div></div>
+		<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark red">
+			  <div class="postcard__text">
+				  <h1 class="postcard__title red"><a href="#">Experiment Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+					  <li class="tag__item"><i class="fas fa-tag mr-2 red2"></i>Survey</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play red">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Experiment</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+		  
+</div>
+
+<div class="row">
+<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark green">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title green "><a href="#">Prototype Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+                        
+					  <li class="tag__item"><i class="fas fa-tag mr-2 green2"></i>Prototype</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play green">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Prototype</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+  <div class="col">
+	  
+	<div class="container py-4">
+		<article class="postcard dark blue">
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a href="#">Experiment Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox"> 
+					<li class="tag__item"><i class="fas fa-tag mr-2 blue2"></i>Poll</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Do Poll</a>
+					</li>
+				</ul>
+			</div>
+		</article></div></div>
+		<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark red">
+			  <div class="postcard__text">
+				  <h1 class="postcard__title red"><a href="#">Experiment Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+					  <li class="tag__item"><i class="fas fa-tag mr-2 red2"></i>Survey</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play red">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Experiment</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+		  
+</div>
+<div class="row">
+<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark green">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title green "><a href="#">Prototype Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+                        
+					  <li class="tag__item"><i class="fas fa-tag mr-2 green2"></i>Prototype</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play green">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Prototype</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+  <div class="col">
+	  
+	<div class="container py-4">
+		<article class="postcard dark blue">
+			<div class="postcard__text">
+				<h1 class="postcard__title blue"><a href="#">Experiment Title</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				<ul class="postcard__tagbox"> 
+					<li class="tag__item"><i class="fas fa-tag mr-2 blue2"></i>Poll</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-play mr-2"></i>Do Poll</a>
+					</li>
+				</ul>
+			</div>
+		</article></div></div>
+		<div class="col">
+	  
+	  <div class="container py-4">
+		  <article class="postcard dark red">
+			  <div class="postcard__text">
+				  <h1 class="postcard__title red"><a href="#">Experiment Title</a></h1>
+				  <div class="postcard__subtitle small">
+					  <time datetime="2020-05-25 12:00:00">
+						  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
+					  </time>
+				  </div>
+				  <div class="postcard__bar"></div>
+				  <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
+				  <ul class="postcard__tagbox">
+					  <li class="tag__item"><i class="fas fa-tag mr-2 red2"></i>Survey</li>
+					  <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
+					  <li class="tag__item play red">
+						  <a href="#"><i class="fas fa-play mr-2"></i>Do Experiment</a>
+					  </li>
+				  </ul>
+			  </div>
+		  </article></div></div>
+		  
+</div>
+
+</div>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+<!--
+<div class="row justify-content-center">
+  <div class="col col-lg-3"><ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Jessica Parker</h3>            
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li>
+</div>
+  <div class="col col-lg-3"><ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Jessica Parker</h3>            
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li></div>
+  
+  <div class="col col-lg-3"><ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Jessica Parker</h3>            
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li></div>
+<div class="col col-lg-3"><ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+          <div class="card__header-text">
+            <h3 class="card__title">Jessica Parker</h3>            
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li></div>
+</div>
+<section class="wrapper">
+  <div class="container">
+  
+  <div class="row">
+ <div class="col-md-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+     <div class="col-md-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tree,nature');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tree,nature" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+  <div class="col-md-4"><div class="card text-white card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?computer,design');">
+         <img class="card-img d-none" src="https://source.unsplash.com/600x900/?computer,design" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+        <div class="card-img-overlay d-flex flex-column">
+         <div class="card-body">
+            <small class="card-meta mb-2">Thought Leadership</small>
+            <h4 class="card-title mt-0 "><a class="text-white" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
+           <small><i class="far fa-clock"></i> October 15, 2020</small>
+          </div>
+          <div class="card-footer">
+           <div class="media">
+  <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
+  <div class="media-body">
+    <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
+     <small>Director of UI/UX</small>
+  </div>
+</div>
+          </div>
+        </div>
+      </div></div>
+  
+</div>
+  
+</div>
+</section>
+-->
+
+
+
+
+
+
+</div>
+</body>
+
+</html> 

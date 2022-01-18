@@ -1,5 +1,6 @@
 <?php
-require_once('Models/UserData.php');
+session_start();
+//require_once('Models/UserData.php');
 require_once('Models/Database.php');
 
 class User
@@ -18,7 +19,7 @@ class User
             $gender='Prefer Not To Say';
         }
         $hashPassword = password_hash($pwd, PASSWORD_DEFAULT);
-        $sqlQuery = "INSERT INTO Users (first_name, last_name, password, DoB, email, gender) VALUE (?, ?, ?, ?, ?, ?)";
+        $sqlQuery = "INSERT INTO user (first_name, last_name, password, DoB, email, gender) VALUE (?, ?, ?, ?, ?, ?)";
         $statement = $this->_dbHandle->prepare($sqlQuery);
 
         $statement->bindParam(1, $FirstName);
@@ -35,7 +36,7 @@ class User
     {
         $this->email = trim($email);
         $this->password = trim($password);
-        $checkEmail = $this->_dbHandle->prepare("SELECT * FROM Users WHERE email = ? ");
+        $checkEmail = $this->_dbHandle->prepare("SELECT * FROM user WHERE email = ? ");
         $checkEmail->execute([$this->email]);
         $row = $checkEmail->fetch(PDO::FETCH_ASSOC);
         if($row['email'] == $this->email)
@@ -43,11 +44,13 @@ class User
             $verifyPass = password_verify($this->password, $row['password']);
             if($verifyPass)
             {
+                //$_SESSION["login"] = $row['id'];
                 $_SESSION = [
                     'user_id' => $row['id'],
                     'email' => $row['email']
                 ];
-                header('Location: https://www.ajbell.co.uk/');
+                //echo '<h1 class="p-3 mb-2 bg-danger text-white"><br>Success!<br></h1>';
+               header('Location: Views/dashboardV.phtml');
             }
             else
             {

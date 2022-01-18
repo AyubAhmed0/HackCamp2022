@@ -1,9 +1,12 @@
 <?php
 $view = new stdClass();
 $view->pageTitle = 'Login';
-require_once('Models/User.php');
-require_once('Views/index.phtml');
-session_start();
+require('Models/User.php');
+if(isset($_SESSION['email'])){
+    header('Location: dashboard.php');
+    //echo '<h1>current user email is:'.$_SESSION['email'].'</h1>';
+    exit;
+}
 if (isset($_POST["button-login"])) {
     
     $userEmail = $_POST["email"];
@@ -15,17 +18,6 @@ if (isset($_POST["button-login"])) {
     $login = new User();
     //$loginDataSet = $login->fetchUserPassword($userEmail, $password);
     $login->loginUser($userEmail, $password);
-    $login2->loginAdmin($userEmail, $password);
-   /* if ($loginDataSet != null) {
-        $_SESSION["login"] = $FirstName;
-//        echo "You are logged in <a href='home.php'>User Page</a>";
-        echo $_SESSION['login'];
-        header('location:signup.php');
-
-    } else {
-        echo "No Match in databse - Error in username and password";
-    }*/
-    
-
-
+    //$login2->loginAdmin($userEmail, $password);
 }
+require('Views/index.phtml');
