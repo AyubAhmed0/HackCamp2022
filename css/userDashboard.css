@@ -610,8 +610,8 @@ a, a:hover {
 }
 /* Cards */
 .postcard {
-    min-width: 500px;
-    min-height: 300px;
+    min-width: 400px;
+    min-height: 400px;
     flex-wrap: wrap;
     display: flex;
     box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
