@@ -6,6 +6,8 @@ require_once('Models/Database.php');
 class User
 {
     protected $_dbHandle, $_dbInstance;
+    protected $reqNumber;
+    protected $oldNum;
 
     public function __construct()
     {
@@ -67,6 +69,55 @@ class User
         //var_dump($_SESSION);
         //echo '<h1>Logged in via email:' . $_SESSION['email'];
         return $_SESSION;
+
+    }
+    public function countExperiment()
+    {
+        try{
+            $sql = "SELECT * FROM `experiment`";
+            $stmt = $this->_dbHandle->prepare($sql);
+            $stmt->execute();
+            //fetch all rows as an object
+            $allRecieved = $stmt->fetchAll(PDO::FETCH_OBJ);
+            //echo '<pre>' , var_dump($allRecieved) , '</pre>';
+            //echo '<prev>',var_dump($allRequests),'</prev>';
+            $this->reqNumber = count((array)$allRecieved);
+
+            $sqlTwo = "SELECT totalExperiments FROM `notification` WHERE id=1";
+            $stmtTwo = $this->_dbHandle->prepare($sqlTwo);
+            $stmtTwo->execute();
+            //fetch all rows as an object
+            //$allRecievedExp = $stmtTwo->fetchAll(PDO::FETCH_OBJ);
+            $allRecievedExp = $stmtTwo->fetch(PDO::FETCH_ASSOC);
+            //echo '<pre>' , var_dump($allRecievedExp) , '</pre>';
+            //$reqNumberTwo = count((array)$allRecievedExp);
+            //echo '<prev>',var_dump($allRecievedExp['totalExperiments']),'</prev>';
+            $this->oldNum = intval($allRecievedExp['totalExperiments']);
+            if($this->oldNum<$this->reqNumber){
+                //echo '<prev>',var_dump($reqNumber),'</prev>';
+            //echo var_dump($oldNum);
+            //echo "New Notification";
+            $notificationNumber = $this->reqNumber - $this->oldNum;
+            //echo $notificationNumber;
+            return $notificationNumber;
+            }
+            else {
+            //echo "No New Notification";
+            return 0;
+    }
+
+        }
+        catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    public function updateNotification()
+    {
+
+            $sqlQuery = "UPDATE `notification` SET totalExperiments=? WHERE id=?";
+            $statement = $this->_dbHandle->prepare($sqlQuery);
+            //$statement->bindParam(1, $reqNumber);
+            $statement->execute([$this->reqNumber,1]);
 
     }
 
