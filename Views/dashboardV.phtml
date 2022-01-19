@@ -1,54 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/userDashboard.css">
-    <title>Document</title>
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-</head>
-<body class="body-background">
-
-
-<div class="wrapper ">
-    <!-- Sidebar  -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <img src="/images/pngegg3.png" width="460" height="345">
-        </div>
-
-        <ul class="list-unstyled components text-center">
-            <li class="sidebarhov">
-                <a href="../Views/dashboard.phtml">Home</a>
-            </li>
-            <li class="sidebarhov">
-                <a href="../Views/experiments/myactivities.phtml">My Activities</a>
-            </li>
-            <li id="sidebarexp1">
-                <a href="../Views/experiments/surveys.phtml">Surveys</a>
-            </li>
-            <li id="sidebarexp2">
-                <a href="../Views/experiments/polls.phtml">Polls</a>
-            </li>
-            <li id="sidebarexp3">
-                <a href="../Views/experiments/prototypes.phtml">Prototypes</a>
-            </li>
-            <li id="sidebarexp4">
-                <a href="../Views/experiments/discussions.phtml">Discussions</a>
-            </li>
-        </ul>
-        <ul class="list-unstyled components text-center ">
-            <li>
-                <a href="#" class="sidebarhov" >Log Out</a>
-            </li>
-        </ul>
-    </nav>
-
+<?php
+    require 'Views/template/header.phtml'
+?>
     <!-- Page Content  -->
     <div id="content">
 
