@@ -610,6 +610,7 @@ a, a:hover {
 }
 /* Cards */
 .postcard {
+    min-width: 400px;
     flex-wrap: wrap;
     display: flex;
     box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
@@ -619,6 +620,15 @@ a, a:hover {
     position: relative;
     color: #fff;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .postcard {
+    min-width: 300px;
+    }
+  }
+
+
 .postcard.green3 {
 
     background-image: linear-gradient(

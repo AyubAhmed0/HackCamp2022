@@ -98,12 +98,13 @@
             </div>
         </div>
 
+        <div class="row ml-3 mr-3">
                 <?php
         //echo 'Hello';
                 //$currenUserObj->countExperiment();
         foreach ($view->ExperimentDataSet as $row) {
                 if($row->getType()=='Prototype'){
-            echo '<div class="row ml-3 mr-3">
+            echo '
             <div class="col">
 
                 <div class="container py-4">
@@ -205,8 +206,6 @@
         }
                 ?>
         </div>
-
-
         <div class="row ml-3 mr-3">
 
             <div class="col">
