@@ -20,6 +20,7 @@ if(isset($_POST["notificationB"]))
     //$msg = "pressed";
    // $value = $currenUserObj->countExperiment();
     $currenUserObj->updateNotification();
+    header('Location: dashboard.php');
 }
 
 require 'Views/dashboardV.phtml';
