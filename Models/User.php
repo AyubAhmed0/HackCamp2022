@@ -113,12 +113,27 @@ class User
     }
     public function updateNotification()
     {
-
             $sqlQuery = "UPDATE `notification` SET totalExperiments=? WHERE id=?";
             $statement = $this->_dbHandle->prepare($sqlQuery);
             //$statement->bindParam(1, $reqNumber);
             $statement->execute([$this->reqNumber,1]);
+    }
 
+    public function findExpById($id){
+        try{
+            $find_user = $this->_dbHandle->prepare("SELECT experimentID FROM `userExperiment` WHERE userID = ?");
+            //$find_user = $this->_dbHandle->prepare("SELECT * FROM `userExperiment` WHERE userID = ?");
+            $find_user->execute([$id]);
+            $userFind = $find_user->fetchAll(PDO::FETCH_OBJ); 
+            
+                return $userFind;
+        }
+        //catches errors caused by the PDO
+        catch (PDOException $e) {
+            echo "Error in PDO in find user by id function";
+            die($e->getMessage());
+
+        }
     }
 
 }

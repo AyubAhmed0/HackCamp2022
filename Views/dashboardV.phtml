@@ -1,4 +1,15 @@
 <?php
+echo "Current user id: ".$currenUserObj->getSession()['user_id'];
+foreach($numberExpUser as $row){
+    $userExpArray[] = $row->experimentID;
+    //$userExpArray[] = $row;
+   //echo '<br>---------------------------';
+//echo '<prev>',var_dump($row->experimentID),'</prev>';
+}
+foreach($userExpArray as $ro){
+   echo '<br>Exp ID by user ID---------------------------';
+    echo $ro;
+}
     require 'Views/template/header.phtml'
 ?>
     <!-- Page Content  -->
@@ -54,7 +65,14 @@
             <?php
             //echo 'Hello';
             //$currenUserObj->countExperiment();
+            
             foreach ($view->ExperimentDataSet as $row) {
+                foreach($userExpArray as $expNum){
+                //echo var_dump($row);
+               // echo $row->getID();
+               if($expNum == $row->getID()){
+             //echo $row->getID();
+                
                 if($row->getType()=='Prototype'){
                     echo '
             <div class="col">
@@ -151,6 +169,11 @@
             </div>';
                 }
             }
+        }
+    }
+            
+        
+    
             ?>
         </div>
         <div class="row ml-3 mr-3">

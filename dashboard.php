@@ -22,6 +22,6 @@ if(isset($_POST["notificationB"]))
     $currenUserObj->updateNotification();
     header('Location: dashboard.php');
 }
-
+$numberExpUser = $currenUserObj->findExpById($currenUserObj->getSession()['user_id']);
 require 'Views/dashboardV.phtml';
 

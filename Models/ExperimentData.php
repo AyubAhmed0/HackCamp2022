@@ -2,16 +2,21 @@
 
 class ExperimentData
 {
-    protected $type, $name, $totalTime, $date, $description;
+    private $expID, $type, $name, $totalTime, $date, $description;
 
     public function __construct($dbRow)
     {
+        $this->expID = $dbRow['id'];
         $this->type = $dbRow['type'];
         $this->name = $dbRow['name'];
         $this->totalTime = $dbRow['totaltime'];
         $this->date = $dbRow['date'];
         $this->description = $dbRow['description'];
     }
+
+public function getID(){
+    return $this->expID;
+}
 //type survey , poll etc
     public function getType(){
     return $this->type;
