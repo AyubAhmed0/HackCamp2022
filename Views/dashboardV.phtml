@@ -1,15 +1,5 @@
 <?php
-echo "Current user id: ".$currenUserObj->getSession()['user_id'];
-foreach($numberExpUser as $row){
-    $userExpArray[] = $row->experimentID;
-    //$userExpArray[] = $row;
-   //echo '<br>---------------------------';
-//echo '<prev>',var_dump($row->experimentID),'</prev>';
-}
-foreach($userExpArray as $ro){
-   echo '<br>Exp ID by user ID---------------------------';
-    echo $ro;
-}
+//echo "Current user id: ".$currenUserObj->getSession()['user_id'];
     require 'Views/template/header.phtml'
 ?>
     <!-- Page Content  -->
@@ -43,11 +33,11 @@ foreach($userExpArray as $ro){
         <div class="row justify-content-center mt-4 ml-2 mr-1">
 
             <div class="col col-md-auto">
-                <a href="../Views/experiments/surveys.phtml"><button class="bn632-hover bn28" >Surveys</button></a>
-                <a href="../Views/experiments/polls.phtml"><button class="bn631-hover bn28" >Polls</button></a></div>
+                <a href="surveys.php"><button class="bn632-hover bn28" >Surveys</button></a>
+                <a href="polls.php"><button class="bn631-hover bn28" >Polls</button></a></div>
             <div class="col col-md-auto">
-                <a href="../Views/experiments/prototypes.phtml"><button class="bn630-hover bn28" >Prototypes</button></a>
-                <a href="../Views/experiments/discussions.phtml"><button class="bn633-hover bn28" >Discussions</button></a>
+                <a href="prototypes.php"><button class="bn630-hover bn28" >Prototypes</button></a>
+                <a href="discussions.php"><button class="bn633-hover bn28" >Discussions</button></a>
             </div>
         </div>
 
@@ -57,7 +47,7 @@ foreach($userExpArray as $ro){
         <div class="row ml-3 mr-3">
 
             <div class="col">
-                <div class="dashboard2"> <a><i class="fa fa-flask" aria-hidden="true"></i></i></a> Experiments to do</div>
+                <div class="dashboard2"> <a><i class="fa fa-flask" aria-hidden="true"></i></i></a> Experiments</div>
             </div>
         </div>
 
@@ -66,13 +56,7 @@ foreach($userExpArray as $ro){
             //echo 'Hello';
             //$currenUserObj->countExperiment();
             
-            foreach ($view->ExperimentDataSet as $row) {
-                foreach($userExpArray as $expNum){
-                //echo var_dump($row);
-               // echo $row->getID();
-               if($expNum == $row->getID()){
-             //echo $row->getID();
-                
+            foreach ($view->ExperimentDataSet as $row) {   
                 if($row->getType()=='Prototype'){
                     echo '
             <div class="col">
@@ -169,169 +153,14 @@ foreach($userExpArray as $ro){
             </div>';
                 }
             }
-        }
-    }
+    
             
         
     
             ?>
+        
+
         </div>
-        <div class="row ml-3 mr-3">
-
-            <div class="col">
-                <div class="dashboard3"> <a><i class="fa fa-check" aria-hidden="true"></i></a> Experiments done</div>
-            </div>
-        </div>
-
-
-        <div class="row ml-3 mr-3">
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp green">
-                        <div class="postcard__text ">
-                            <h1 class="postcard__title green "><a href="#">Prototype Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-
-                                <li class="tag__item"><i class="fas fa-tag mr-2 green2"></i>Prototype</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play green">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Prototype</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div></div>
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp blue">
-                        <div class="postcard__text">
-                            <h1 class="postcard__title blue"><a href="#">Experiment Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-                                <li class="tag__item"><i class="fas fa-tag mr-2 blue2"></i>Poll</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play blue">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Poll</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div></div>
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp red">
-                        <div class="postcard__text">
-                            <h1 class="postcard__title red"><a href="#">Experiment Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-                                <li class="tag__item"><i class="fas fa-tag mr-2 red2"></i>Survey</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play red">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Survey</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div>
-            </div>
-        </div>
-
-
-        <div class="row ml-3 mr-3">
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp blue">
-                        <div class="postcard__text ">
-                            <h1 class="postcard__title blue "><a href="#">Prototype Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-
-                                <li class="tag__item"><i class="fas fa-tag mr-2 blue2"></i>Poll</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play blue">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Poll</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div></div>
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp green">
-                        <div class="postcard__text">
-                            <h1 class="postcard__title green"><a href="#">Experiment Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-                                <li class="tag__item"><i class="fas fa-tag mr-2 green2"></i>Prototype</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play green">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Prototype</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div></div>
-            <div class="col">
-
-                <div class="container py-4">
-                    <article class="postcard doneexp yellow">
-                        <div class="postcard__text">
-                            <h1 class="postcard__title yellow"><a href="#">Experiment Title</a></h1>
-                            <div class="postcard__subtitle small">
-                                <time datetime="2020-05-25 12:00:00">
-                                    <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                                </time>
-                            </div>
-                            <div class="postcard__bar"></div>
-                            <div class="postcard__preview-txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, fugiat asperiores inventore beatae accusamus odit minima enim, commodi quia, doloribus eius! Ducimus nemo accusantium maiores velit corrupti tempora reiciendis molestiae repellat vero. Eveniet ipsam adipisci illo iusto quibusdam, sunt neque nulla unde ipsum dolores nobis enim quidem excepturi, illum quos!</div>
-                            <ul class="postcard__tagbox">
-                                <li class="tag__item"><i class="fas fa-tag mr-2 yellow2"></i>Discussion</li>
-                                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                                <li class="tag__item play yellow">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do Discussion</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </article></div>
-            </div>
-        </div>
-
-
-
-
-
-
 
 
 
