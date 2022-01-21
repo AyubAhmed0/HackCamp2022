@@ -64,10 +64,7 @@
     <div class="p-2 align-self-center">
 <a class="dashboard" >Admin Panel</a></div>
     <div class="p-2 align-self-center">
-	<button class="notificationbtn-hover notificationbtn">
-	<i class="fa fa-bell" aria-hidden="true"></i>
-                        <span>2</span>
-                    </button> </div>
+	 </div>
   </div>
 </div>
 
@@ -91,7 +88,7 @@
 				  <h1 class="postcard__title green "><a href="#">USERS</a></h1>
 				  <div class="postcard__bar"></div>
 				  <p class="head-1">Users</p>
-            		<p class="number">67343</p>
+            		<p class="number"> <?php echo $usersCount ?> Total users</p>
             		<!-- <i class="fa fa-line-chart box-icon"></i> -->
 			  </div>
 		  </article></div></div>
@@ -101,10 +98,10 @@
 	  <div class="container py-4">
 		  <article class="postcard red3 red">
 			  <div class="postcard__text ">
-				  <h1 class="postcard__title green "><a href="#">SARVEY</a></h1>
+				  <h1 class="postcard__title green "><a href="#">SURVEYS</a></h1>
 				  <div class="postcard__bar"></div>
-				  <p class="head-1">Sarvey</p>
-            		<p class="number">67343</p>
+				  <p class="head-1">Surveys</p>
+            		<p class="number"><?php echo $surveysCount ?> Total Surveys</p>
             		<!-- <i class="fa fa-line-chart box-icon"></i> -->
 			  </div>
 		  </article></div></div>
@@ -117,7 +114,31 @@
 				  <h1 class="postcard__title green "><a href="#">POLLS</a></h1>
 				  <div class="postcard__bar"></div>
 				  <p class="head-1">Polls</p>
-            		<p class="number">67343</p>
+            		<p class="number"><?php echo $pollsCount ?> Total Polls</p>
+            		<!-- <i class="fa fa-line-chart box-icon"></i> -->
+			  </div>
+		  </article></div></div>
+	  <div class="col">
+
+      <div class="container py-4">
+		  <article class="postcard green3 green">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title green "><a href="#">Prototypes</a></h1>
+				  <div class="postcard__bar"></div>
+				  <p class="head-1">Prototypes</p>
+            		<p class="number"><?php echo $prototypesCount ?> Total Prototypes</p>
+            		<!-- <i class="fa fa-line-chart box-icon"></i> -->
+			  </div>
+		  </article></div></div>
+	  <div class="col">
+
+      <div class="container py-4">
+		  <article class="postcard yellow3 yellow">
+			  <div class="postcard__text ">
+				  <h1 class="postcard__title yellow "><a href="#">DISCUSSIONS</a></h1>
+				  <div class="postcard__bar"></div>
+				  <p class="head-1">Discussions</p>
+            		<p class="number"><?php echo $discussionsCount ?> Total Discussions</p>
             		<!-- <i class="fa fa-line-chart box-icon"></i> -->
 			  </div>
 		  </article></div></div>
@@ -143,36 +164,21 @@
     <tr>
 	<th scope="col">Full Name</th>
     <th scope="col">Email</th>
-    <th scope="col">Total Survey</th>
+    <th scope="col">Total Experiment</th>
     </tr>
   </thead>
-  <tbody>
+  <?php
+   foreach ($allUsers as $row) {
+      $totalExp = $currentAdmin->getAllExperiments($row['id']);
+  echo '<tbody>
   	<tr data-href="../login.phtml">
-          <td>Mahadi
-        </td><td>Mahadi@gmail.com
-        </td><td>gd
-        </td></tr>
-        <tr data-href="../login.phtml">
-            <td>Hanzala
-        </td><td>Hanzala@gmail.com
-        </td><td>gd
-        </td></tr>
-        <tr data-href="../login.phtml">
-            <td>Ahmed
-        </td><td>Ahmed@gmail.com
-        </td><td>gd
-        </td></tr>
-        <tr data-href="../login.phtml">
-            <td>Ayub
-        </td><td>Ayub@gmail.com
-        </td><td>gd
-        </td></tr>
-        <tr data-href="../login.phtml">
-            <td>Julio
-        </td><td>Julio@gmail.com
-        </td><td>gd
-        </td></tr>
-  </tbody>
+          <td>'.$row['first_name'].'</td>
+          <td>'.$row['email'].'</td>
+          <td>'.$totalExp.'</td>
+        </tr>
+  </tbody>';
+  }
+  ?>
 </table>
 </div>
 </div>
