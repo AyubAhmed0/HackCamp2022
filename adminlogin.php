@@ -15,8 +15,8 @@ if (isset($_POST["button-login"])) {
     $loginAdmin->loginAdmin($userEmail, $password);
     //$login2->loginAdmin($userEmail, $password);
 }
-if(isset($_SESSION['email'])){
-    header('Location: dashboard.php');
+if(isset($_SESSION['admin_email'])){
+    header('Location: adminpanel.php');
     //echo '<h1>current user email is:'.$_SESSION['email'].'</h1>';
     exit;
 }

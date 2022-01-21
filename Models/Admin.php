@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('Models/Admindata.php');
 require_once('Models/Database.php');
 
@@ -28,7 +29,7 @@ class Admin
                     'admin_id' => $row['adminID'],
                     'admin_email' => $row['adminEmail']
                 ];
-                header('Location: https://www.ajbell.co.uk/');
+                header('Location: adminpanel.php');
             }
             else
             {
@@ -42,8 +43,8 @@ class Admin
     }
     public function getAdminSession()
     {
+        //return $_SESSION;
         return $_SESSION;
-
     }
 
 }
