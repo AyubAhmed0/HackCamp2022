@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/userSignup.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="body-background">
+    <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+        <div class="card cardBackgroud p-3 text-center py-4">
+            <img src="../images/pngegg3.png" width="460" height="345">
+            <h4 class="card-title">Create account</h4>
+            <div> <span class="card-description">Already have an account?</span> <a href="../index.php" class="text-warning  text-decoration-none login">Login</a> </div>
+            <form method="post" action="" enctype="multipart/form-data">
+            <p>Select the type of experiment:</p>
+
+<div>
+  <input type="radio" id="survey" name="experiment" value="Survey"
+         checked>
+  <label for="survey">Survey</label>
+</div>
+
+<div>
+  <input type="radio" id="poll" name="experiment" value="Poll">
+  <label for="poll">Poll</label>
+</div>
+<div>
+  <input type="radio" id="prototype" name="experiment" value="Prototype">
+  <label for="prototype">Prototype</label>
+</div>
+<div>
+  <input type="radio" id="discussion" name="experiment" value="Discussion">
+  <label for="discussion">Discussion</label>
+</div>
+            <div class="mt-3 px-3"> <input type="text" name = "title" class="form-control" placeholder="Experiment Name" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "totalTime" class="form-control" placeholder="Total Time in Minutes" > </div>
+            <div class="mt-3 px-3"> <input type = "text" name = "date" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" class="form-control" placeholder="Start Date" ></div>
+            <div class="mt-3 px-3"> <input type="text" name = "description" class="form-control" placeholder="Experiment Description" > </div>
+            <div class="mt-3 px-3"> <input type="text" name = "questionOne" class="form-control" placeholder="Question 1"> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "questionTwo" class="form-control" placeholder="Question 2"> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "questionThree" class="form-control" placeholder="Question 3"> </div>
+            <div class="mt-3 px-3"> <button type="submit" name="submitExperiment" class="btn-block button2 btn-signup text-uppercase"> <span>Create Experiments</span> </button> </div>
+            </form>
+            <form action="" method="POST">
+      <input type="text" name="Id[]"/>
+      <input type="text" name="Id[]"/>
+      <!-- you can add as many as input here for id if you want -->
+      <input type="submit" name="buttonArray" />
+    </form>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

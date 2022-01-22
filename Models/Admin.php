@@ -162,4 +162,20 @@ class Admin
         }
     }
 
+    public function createExperiment($type, $title, $totalTime, $startDate, $description, $questionOne)
+    {
+        $sqlQuery = "INSERT INTO experiment (type, name, totaltime, date, description, questionSet) VALUE (?, ?, ?, ?, ?, ?)";
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->bindParam(1, $type);
+        $statement->bindParam(2, $title);
+        $statement->bindParam(3, $totalTime);
+        $statement->bindParam(4, $startDate);
+        $statement->bindParam(5, $description);
+        $statement->bindParam(6, $questionOne);
+        $statement->execute();
+        /*$sqlQueryOne = "INSERT INTO questions (questionSet) VALUE (?)";
+        $statementOne = $this->_dbHandle->prepare($sqlQueryOne);
+        $statementOne->bindParam(1, $questionOne);
+        $statementOne->execute();*/
+    }
 }

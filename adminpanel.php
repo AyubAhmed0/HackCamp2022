@@ -14,7 +14,6 @@ exit;
 }
 $usersCount=count($currentAdmin->getAllUsers());
 $allUsers = $currentAdmin->getAllUsers();
-
 $surveysCount=count($currentAdmin->getAllSurveys());
 $pollsCount=count($currentAdmin->getAllPolls());
 $discussionsCount=count($currentAdmin->getAllDiscussions());
