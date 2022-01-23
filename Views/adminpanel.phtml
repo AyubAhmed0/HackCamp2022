@@ -1,57 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/adminDashboard.css">
-	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <title>Document</title>
-    
-    <!-- Font Awesome JS -->
-	<script src="https://use.fontawesome.com/e8115dfc1a.js"></script>
-</head>
-<body class="body-background">
-
-
-<div class="wrapper ">
-        <!-- Sidebar  -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-		<img src="images/pngegg3.png" width="460" height="345">
-		<div class="text-center bg-primary card mg-auto " style="width: 16rem; color: white;">Admin</div>
-            </div>
-
-            <ul class="list-unstyled components text-center">
-                <li class="sidebarhov">
-                    <a href="../Views/dashboard.phtml">
-						<i class="fa fa-bar-chart" aria-hidden="true"></i> Home</a>
-                </li>
-				<li class="sidebarhov">
-                    <a href="../Views/dashboard.phtml"> 
-						  <i class="fa fa-user" aria-hidden="true"></i> Users</a>
-                </li>
-				<li class="sidebarhov">
-                    <a href="../Views/dashboard.phtml"><i class="fa fa-cog" aria-hidden="true"></i> Create Experiments</a>
-                </li>
-				<li class="sidebarhov">
-                    <a href="../Views/dashboard.phtml"><i class="fa fa-flask" aria-hidden="true"></i> Experiments</a>
-                </li>
-            </ul>
-			<ul class="list-unstyled components text-center ">
-                <li>
-                    <a href="logoutAdmin.php" class="sidebarhov" >Log Out</a>
-                </li>
-            </ul>
-        </nav>
-
-        <!-- Page Content  -->
-<div id="content">
-
-
-
-
+<?php
+require 'Views/Template/adminHeader.phtml';
+?>
 
 
 <div class="header body-background3">
@@ -67,6 +16,13 @@
 	 </div>
   </div>
 </div>
+        <!-- Page Content  -->
+<div id="content">
+
+
+
+
+
 
 
 
@@ -190,46 +146,44 @@
 
 
 
+   <!-- jQuery CDN - Slim version (=without AJAX) -->
 
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
+<!-- Popper.JS -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
-    <!-- Popper.JS -->
+<!-- Bootstrap JS -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap JS -->
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            $('#sidebarCollapse').on('click', function () {
+        $('#sidebarCollapse').on('click', function () {
 
-                $('#sidebar').toggleClass('active');
-
-            });
+            $('#sidebar').toggleClass('active');
 
         });
 
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const rows = document.querySelectorAll("tr[data-href]");
+    });
 
-            rows.forEach(row => {
-                row.addEventListener("click", () => {
-                    window.location.href = row.dataset.href;
-                });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
             });
         });
-    </script>
+    });
+</script>
 
 
 

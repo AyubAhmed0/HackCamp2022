@@ -12,9 +12,20 @@ if(isset($_POST['submitExperiment']))
 foreach($group_membership as $username) {
  $items[] = $username;
 }*/
-if(isset($_POST['buttonArray']))
+if(isset($_POST['surveyBtn']))
 {
-  echo "<prev>",var_dump($_POST["id"]),"</prev>";
-  
+  header('Location: createSurvey.php');
+}
+elseif(isset($_POST['pollBtn']))
+{
+  header('Location: createPoll.php');
+}
+elseif(isset($_POST['dicussionBtn']))
+{
+  header('Location: createDiscussion.php');
+}
+elseif(isset($_POST['prototypeBtn']))
+{
+  header('Location: createPrototype.php');
 }
 require 'Views/createExperiment.phtml';

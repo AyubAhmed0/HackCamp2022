@@ -6,6 +6,7 @@ require_once('Models/Database.php');
 class Admin
 {
     protected $_dbHandle, $_dbInstance;
+    protected $numField;
 
     public function __construct()
     {
@@ -178,4 +179,25 @@ class Admin
         $statementOne->bindParam(1, $questionOne);
         $statementOne->execute();*/
     }
+
+    public function addElement($stopAt)
+    {
+        $_SESSION = [
+            'numFields' => $stopAt
+        ];
+        $this->numField = $stopAt;
+        $stopAt = $stopAt +1;
+        $i=1;
+        while($i<$stopAt){
+        echo '<div><input type="text" name="option'.$i.'"></div>';
+        $i++;
+        }
+    }
+    public function createForm($optionsSet,$question)
+    {
+        $sqlQuery = "INSERT INTO questions (question, optionSet) VALUE ('$question','$optionsSet')";
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->execute();
+    }
+
 }

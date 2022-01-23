@@ -1,0 +1,98 @@
+.bodyUser {
+    background: #333F48;
+    color:#ffffff;
+    border-style: solid;
+    border-color: red;
+    border-width: 3px;
+    border-radius: 5%;
+}
+
+.cardUser {
+    /*background-color: #C1C6C8;*/
+    border: none;
+    position: relative;
+    overflow: hidden;
+    
+    cursor: pointer
+}
+
+@media only screen and (max-width: 600px) {
+    
+   .cardUser {
+    overflow: scroll;
+
+    }
+}
+
+.spanTables{
+    padding-bottom: 15px;
+    padding-top: 4px;
+}
+/*.cardUser:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #E1BEE7;
+    transform: scaleY(1);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+.cardUser:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #8E24AA;
+    transform: scaleY(0);
+    transition: all 0.5s;
+    transform-origin: bottom
+}
+.cardUser:hover::after {
+    transform: scaleY(1)
+}*/
+
+.fonts {
+    font-size: 11px
+}
+
+.social-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0
+}
+
+.social-list li {
+    padding: 10px;
+    color: #8E24AA;
+    font-size: 19px
+}
+
+.buttons button:nth-child(1) {
+    border: 1px solid #8E24AA !important;
+    color: #8E24AA;
+    height: 40px
+}
+
+.buttons button:nth-child(1):hover {
+    border: 1px solid #8E24AA !important;
+    color: #fff;
+    height: 40px;
+    background-color: #8E24AA
+}
+
+.buttons button:nth-child(2) {
+    border: 1px solid #8E24AA !important;
+    background-color: #8E24AA;
+    color: #fff;
+    height: 40px
+}
+
+.downloadImage{
+    width: 14px;height: 16px;
+}

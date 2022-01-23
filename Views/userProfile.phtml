@@ -1,0 +1,78 @@
+<?php
+//echo "Current user id: ".$currenUserObj->getSession()['user_id'];
+$userExpArray[] = "";
+//echo '<prev>', var_dump($numberExpUser), '</prev>';
+if($numberExpUser!=null){
+foreach($numberExpUser as $row){
+    $userExpArray[] = $row->experimentID;
+   //echo '<br>---------------------------';
+//echo '<prev>',var_dump($row->experimentID),'</prev>';
+//echo '<prev>', var_dump($userExpArray), '</prev>';
+}
+}
+require 'Views/Template/adminHeader.phtml';
+?>
+
+        <!-- Page Content  -->
+
+<div class="container mt-5 bodyUser">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-7">
+            <div class="cardUser p-3 py-4">
+                <div class="text-center"> <img src="images/userPic.png" width="100" class="rounded-circle"> </div>
+                <div class="text-center mt-3"> 
+                    <h5 class="mt-2 mb-0"><?php echo $userData['first_name']; ?></h5> <span><?php echo $userData['email']; ?></span>
+                    <br>
+                    <div><a class ="btn btn-outline-primary p-1" href = "mailto: <?php echo $userData['email']; ?>">Contact</a></div>
+                    <hr>
+                    <div name="tables">
+                    <table class="table table-hover table-dark">
+                            <thead>
+                                <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Experiment Name</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Total Time</th>
+                                <th scope="col">Date</th>
+                                </tr>
+                            </thead>
+                            
+                    <?php
+            $t = true;
+            $ta = true;
+            $tb = true;
+            $tc = true;
+            foreach ($view->ExperimentDataSet as $row) {
+                foreach($userExpArray as $expNum){
+               if($expNum == $row->getID())
+               {
+                       echo '
+                       <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>'.$row->getName().'</td>
+                                <td>'.$row->getType().'</td>
+                                <td>'.$row->getTotalTime().'</td>
+                                <td>'.$row->getDate().'</td>
+                                </tr>
+                                <tr>
+                                </tbody>
+                                
+                        ';
+            }
+           
+        }
+    }
+                ?>
+                </table>
+                                    </div> 
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>

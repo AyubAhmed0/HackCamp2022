@@ -135,5 +135,27 @@ class User
 
         }
     }
+    public function findUserById($id){
+        try{
+            $find_user = $this->_dbHandle->prepare("SELECT * FROM `user` WHERE id = ?");
+            //$find_user = $this->_dbHandle->prepare("SELECT * FROM `userExperiment` WHERE userID = ?");
+            $find_user->execute([$id]);
+             $userFind = $find_user->fetch(PDO::FETCH_ASSOC);
+             $rowCount = $find_user->rowCount();
+             if($rowCount === 1){
+                 return $userFind;
+             }
+             else{
+                 echo '<br>User Not found!<br>';
+                 return false;
+             }
+        }
+        //catches errors caused by the PDO
+        catch (PDOException $e) {
+            echo "Error in PDO in find user by id function";
+            die($e->getMessage());
+
+        }
+    }
 
 }
