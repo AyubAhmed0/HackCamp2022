@@ -42,21 +42,15 @@ require 'Views/Template/adminHeader.phtml';
 	  <div class="container py-4">
 		  <article class="postcard red3 red">
 			  <div class="postcard__text ">
-				  <h1 class="postcard__title green "><a href="#">SURVEYS</a></h1>
+				  <h1 class="postcard__title green "><a href="#">SURVEY</a></h1>
 				  <div class="postcard__bar"></div>
-                  <form method="post" action="" enctype="multipart/form-data">
-            <div class="mt-3 px-3"> <input type="text" name = "question" class="form-control" placeholder="Question"> </div>
-            <div class="mt-3 px-3"> <input type="text" name = "numFields" class="form-control" placeholder="How many options?"> </div>
-            <?php
-            //store number fields as well
-            if(isset($_POST['addNew'])){
-                    $currentAdmin->addElement($_POST['numFields']);
-                   //echo  '<button type="submit" name="sendData">Save Form</button>';
-                   //$numFields = $numFields;
-            }
-            ?>
-            <button type="submit" name="addNew">add</button>
-            <button type="submit" name="sendData">Save Form</button>
+            <h4 class="card-title">Create Survey</h4>
+            <form method="post" action="" enctype="multipart/form-data">
+            <div class="mt-3 px-3"> <input type="text" name = "name" class="form-control" placeholder="Survey Name" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "totalTime" class="form-control" placeholder="Enter total estimate time" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "description" class="form-control" placeholder="Enter some description"> </div>
+            <div class="mt-3 px-3"> <input type="text" name = "link" class="form-control" placeholder="Enter/Paste Google forms embedded link"> </div>
+            <div class="mt-3 px-3"> <button type="submit" name="createSurvey" class="btn-danger text-uppercase"> <span>Create Survey</span> </button> </div>
             </form>
 
 			  </div>

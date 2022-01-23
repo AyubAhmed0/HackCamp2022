@@ -4,25 +4,18 @@ require 'Models/Admin.php';
 
 
 $currentAdmin = new Admin();
-if(isset($_POST['sendData']) && isset($_POST['question']))
-    {
-        $numFields = $_SESSION['numFields'];
-        echo $numFields;
-        $optionsValues=[];
-        echo $_POST['question'];
-        //echo "Question: ".$question;
-        $i=1;
-        while($i<$numFields+1)
-        {
-                $options =  "option".$i;
-                $optionsValues[] = $_POST[''.$options.'']; 
-                $i++;
-        }
-        
-        $commaOptions = implode(",", $optionsValues);
-        //var_dump($commaOptions);
-        $currentAdmin->createForm($commaOptions,$_POST['question']);
-    }
 
+if(isset($_POST['createSurvey']))
+{
+    $type = "Survey";
+    $currentDate = date("Y/m/d");
+    //$currentAdmin->createExperiment($type, $_POST(['name']), $_POST(['totatlTime']), $currentDate, $_POST(['description']), $_POST(['link']));
+    echo $type;
+    echo $_POST(['name']);
+    echo $_POST(['totatlTime']);
+    echo $currentDate;
+    echo $_POST(['description']);
+    echo $_POST(['link']);
+}
 
 require 'Views/createSurvey.phtml';

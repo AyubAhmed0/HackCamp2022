@@ -2,7 +2,7 @@
 
 class ExperimentData
 {
-    private $expID, $type, $name, $totalTime, $date, $description, $questionSet;
+    private $expID, $type, $name, $totalTime, $date, $description/*, $questionSet*/;
 
     public function __construct($dbRow)
     {
@@ -12,7 +12,7 @@ class ExperimentData
         $this->totalTime = $dbRow['totaltime'];
         $this->date = $dbRow['date'];
         $this->description = $dbRow['description'];
-        $this->questionSet = $dbRow['questionSet'];
+        //$this->questionSet = $dbRow['questionSet'];
     }
 
 public function getID(){
@@ -34,9 +34,9 @@ public function getID(){
     public function getDescription(){
         return $this->description;
     }
-    public function getQuestionSet(){
+    /*public function getQuestionSet(){
         return $this->questionSet;
-    }
+    }*/
 
 
 }

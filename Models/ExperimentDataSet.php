@@ -13,7 +13,7 @@ class ExperimentDataSet
 
     public function fetchAllUsers()
     {
-        $sqlQuery = 'SELECT * FROM Users';
+        $sqlQuery = 'SELECT * FROM user';
         $statement = $this->_dbHandle->prepare($sqlQuery);
 
         $statement->execute();

@@ -49,12 +49,12 @@ require 'Views/Template/adminHeader.phtml';
    foreach ($allUsers as $row) {
       $totalExp = $currentAdmin->getAllExperiments($row['id']);
   echo '<tbody>
-  	<tr data-href="userProfile.php?id=' . $row['id'] . '">
+  	<tr>
       
           <td>'.$row['first_name'].' '.$row['last_name'].'</td>
           <td>'.$row['email'].'</td>
           <td>'.$totalExp.'</td>
-          
+          <td><a href="userProfile.php?id=' . $row['id'] . '" class="btn-danger p-1">>>></a></td>
         </tr>
   </tbody>';
   }
