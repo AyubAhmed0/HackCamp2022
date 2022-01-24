@@ -31,7 +31,7 @@ require 'Views/Template/adminHeader.phtml';
 <div class="row ml-3 mr-3">
 	
 <div class="col">
-<div class="dashboard2"> <a><i class="fa fa-area-chart" aria-hidden="true"></i></a> Create Survey</div>
+<div class="dashboard2"> <a><i class="fa fa-area-chart" aria-hidden="true"></i></a> Create Protot</div>
 </div>
 </div>
 
@@ -47,7 +47,14 @@ require 'Views/Template/adminHeader.phtml';
             <h1 class="postcard__title green "><a href="#">Prototypes</a></h1>
             <div class="postcard__bar"></div>
 
-              <!-- <i class="fa fa-line-chart box-icon"></i> -->
+            <h4 class="card-title">Create Prototype</h4>
+            <form method="POST" action="">
+            <div class="mt-3 px-3"> <input type="text" name="name" class="form-control" placeholder="Survey Name" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name="totalTime" class="form-control" placeholder="Enter total estimate time" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name="description" class="form-control" placeholder="Enter some description"> </div>
+            <div class="mt-3 px-3"> <input type="text" name="link" class="form-control" placeholder="Enter/Paste Google forms embedded link"> </div>
+            <div class="mt-3 px-3"> <button type="submit" name="createPrototype" class="btn-danger text-uppercase"> <span>Create Survey</span> </button> </div>
+            </form>
         </div>
     </article></div></div>
 

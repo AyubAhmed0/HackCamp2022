@@ -156,6 +156,42 @@ class User
             die($e->getMessage());
 
         }
+        
     }
+    public function getExperiment($experimentID)
+        {
+            try{
+                $find_Exp = $this->_dbHandle->prepare("SELECT * FROM `experiment` WHERE id = ?");
+                $find_Exp->execute([$experimentID]);
+                 $expFind = $find_Exp->fetch(PDO::FETCH_ASSOC);
+                 $rowCount = $find_Exp->rowCount();
+                 if($rowCount === 1){
+                     return $expFind;
+                 }
+                 else{
+                     echo '<br>Experiment Not found!<br>';
+                     return false;
+                 }
+            }
+            //catches errors caused by the PDO
+            catch (PDOException $e) {
+                echo "Error in PDO in find user by id function";
+                die($e->getMessage());
+    
+            }
+        }
+        public function userExperiment($userID, $expID)
+        {
+            $date= date("Y/m/d") ;
+            $time= date("h:i a");
+            $sqlQuery = "INSERT INTO userExperiment (userID, experimentID, date, time) VALUE (?, ?, ?, ?)";
+        $statement = $this->_dbHandle->prepare($sqlQuery);
+        $statement->bindParam(1, $userID);
+        $statement->bindParam(2, $expID);
+        $statement->bindParam(3, $date);
+        $statement->bindParam(4, $time);
+        $statement->execute();
+
+        }
 
 }

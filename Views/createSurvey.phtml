@@ -45,11 +45,11 @@ require 'Views/Template/adminHeader.phtml';
 				  <h1 class="postcard__title green "><a href="#">SURVEY</a></h1>
 				  <div class="postcard__bar"></div>
             <h4 class="card-title">Create Survey</h4>
-            <form method="post" action="" enctype="multipart/form-data">
-            <div class="mt-3 px-3"> <input type="text" name = "name" class="form-control" placeholder="Survey Name" required> </div>
-            <div class="mt-3 px-3"> <input type="text" name = "totalTime" class="form-control" placeholder="Enter total estimate time" required> </div>
-            <div class="mt-3 px-3"> <input type="text" name = "description" class="form-control" placeholder="Enter some description"> </div>
-            <div class="mt-3 px-3"> <input type="text" name = "link" class="form-control" placeholder="Enter/Paste Google forms embedded link"> </div>
+            <form method="POST" action="">
+            <div class="mt-3 px-3"> <input type="text" name="name" class="form-control" placeholder="Survey Name" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name="totalTime" class="form-control" placeholder="Enter total estimate time" required> </div>
+            <div class="mt-3 px-3"> <input type="text" name="description" class="form-control" placeholder="Enter some description"> </div>
+            <div class="mt-3 px-3"> <input type="text" name="link" class="form-control" placeholder="Enter/Paste Google forms embedded link"> </div>
             <div class="mt-3 px-3"> <button type="submit" name="createSurvey" class="btn-danger text-uppercase"> <span>Create Survey</span> </button> </div>
             </form>
 

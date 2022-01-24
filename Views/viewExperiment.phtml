@@ -1,0 +1,100 @@
+<?php
+//echo "Current user id: ".$currenUserObj->getSession()['user_id'];
+    require 'Views/template/header.phtml'
+?>
+    <!-- Page Content  -->
+    <div id="content">
+
+
+
+
+
+
+        <div class="header body-background3">
+            <div class="d-flex justify-content-between">
+                <div class="p-2 align-self-center">
+                    <button type="button" id="sidebarCollapse" class="sidebutton-hover sidebutton">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button></div>
+                <div class="p-2 align-self-center">
+                    <a class="dashboard" >Dashboard</a></div>
+                <div class="p-2 align-self-center">
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row ml-3 mr-3">
+
+            <div class="col">
+                <div class="dashboard2"> <a><i class="fa fa-flask" aria-hidden="true"></i></i></a> Experiments</div>
+            </div>
+        </div>
+
+        <div class="row ml-3 mr-3">
+            <?php
+            //echo 'Hello';
+            //$currenUserObj->countExperiment();
+            
+        
+                    echo '
+            <div class="col">
+                <div class="container py-4">
+                    <article class="postcard green3 green">
+                        <div class="postcard__text ">
+                        '.$currentExperiment['formHtml'].'
+                        </div>
+                    </article></div></div>'; 
+            
+    
+            ?>
+        
+
+        </div>
+
+
+
+
+
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+        <!-- Popper.JS -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+        <!-- Bootstrap JS -->
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                $('#sidebarCollapse').on('click', function () {
+
+                    $('#sidebar').toggleClass('active');
+
+                });
+
+            });
+
+        </script>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>
