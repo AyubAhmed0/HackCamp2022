@@ -2,6 +2,7 @@
 $view = new stdClass();
 $view->pageTitle = 'Login Admin';
 require 'Models/Admin.php' ;
+$error = 0;
 if (isset($_POST["button-login"])) {
     
     $userEmail = $_POST["email"];
@@ -12,8 +13,8 @@ if (isset($_POST["button-login"])) {
     //var_dump($password);
     $loginAdmin = new Admin();
     //$loginDataSet = $login->fetchUserPassword($userEmail, $password);
-    $loginAdmin->loginAdmin($userEmail, $password);
-    //$login2->loginAdmin($userEmail, $password);
+    //$loginAdmin->loginAdmin($userEmail, $password);
+    $error = $loginAdmin->loginAdmin($userEmail, $password);
 }
 if(isset($_SESSION['admin_email'])){
     header('Location: adminpanel.php');
