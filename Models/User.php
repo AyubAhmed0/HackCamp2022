@@ -36,14 +36,16 @@ class User
     }
     public function loginUser($email, $password)
     {
-        $this->email = trim($email);
-        $this->password = trim($password);
+        $email = trim($email);
+        $password = trim($password);
         $checkEmail = $this->_dbHandle->prepare("SELECT * FROM user WHERE email = ? ");
-        $checkEmail->execute([$this->email]);
+        $checkEmail->execute([$email]);
         $row = $checkEmail->fetch(PDO::FETCH_ASSOC);
-        if($row['email'] == $this->email)
+        $rowCount = $checkEmail->rowCount();
+        //echo $rowCount;
+        if($rowCount===1)
         {
-            $verifyPass = password_verify($this->password, $row['password']);
+            $verifyPass = password_verify($password, $row['password']);
             if($verifyPass)
             {
                 //$_SESSION["login"] = $row['id'];
@@ -51,17 +53,18 @@ class User
                     'user_id' => $row['id'],
                     'email' => $row['email']
                 ];
-                //echo '<h1 class="p-3 mb-2 bg-danger text-white"><br>Success!<br></h1>';
                header('Location: dashboard.php');
             }
             else
             {
-                echo '<h1 class="p-3 mb-2 bg-danger text-white"><br>Show password not matched message!<br></h1>';
+                //echo '<h1 class="p-3 mb-2 bg-danger text-white"><br>Show password not matched message!<br></h1>';
+                return 1; //error pass
             }
         }
         else
         {
-            echo '<h1 class="p-3 mb-2 bg-danger text-white"><br> Show Email is not registered message!<br></h1>';
+            //echo '<h1 class="p-3 mb-2 bg-danger text-white"><br> Show Email is not registered message!<br></h1>';
+            return 2; //error email
         }
     }
     public function getSession()

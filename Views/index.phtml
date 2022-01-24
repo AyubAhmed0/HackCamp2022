@@ -11,15 +11,31 @@
 <body>
     
 <div class="body-background2">
+<?php
+    if($error == 1){
+        echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">Incorrect password!</strong> Try it again.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>';
+    } 
+    elseif($error == 2){ 
+        echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">Email not registred!</strong>Please check spelling and Try again.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>';
+    }
+?>
     <div class="container-fluid d-flex justify-content-center align-items-center h-100">
         <div class="card p-3 text-center py-4" >
-            <img src="../images/pngegg3.png" width="460" height="345">
+            <img src="images/pngegg3.png" width="460" height="345">
             <form method="post" action="" enctype="multipart/form-data">
             <div class="mt-3 px-3"> <input type="email" name = "email" class="form-control" placeholder="E-mail" required> </div>
             <div class="mt-3 px-3"> <input type="password" name="login-password" class="form-control" id="login-Password" placeholder="Password" required> </div>
             <div class="mt-3 px-3"> <button type="submit" name="button-login" value="Login" class="button2 btn-block btn-login text-uppercase"> <span>Log in</span> </button> </div>
             </form>
-            <div class="text-white"> <span class="card-description">Not Registered?</span> <a href="../signup.php" class="text-warning text-decoration-none login">Register Here</a> </div>
+            <div class="text-white"> <span class="card-description">Not Registered?</span> <a href="signup.php" class="text-warning text-decoration-none login">Register Here</a> </div>
             <div class="text-white"> <span class="card-description">Login as Admin</span> <a href="adminlogin.php" class="text-warning text-decoration-none login">Login</a> </div>
             </div>
         </div>
