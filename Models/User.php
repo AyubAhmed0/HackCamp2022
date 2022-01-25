@@ -16,26 +16,32 @@ class User
     }
 
     public function createUsers($FirstName, $LastName, $email, $DoB, $gender, $pwd){
-        if(empty($gender))
-        {
-            $gender='Prefer Not To Say';
+
+        $checkEmail = $this->_dbHandle->prepare("SELECT * FROM `user` WHERE email = ?");
+        $checkEmail->execute([$email]);
+        if($checkEmail->rowCount() > 0){
+            return 2;
         }
-        $hashPassword = password_hash($pwd, PASSWORD_DEFAULT);
-        $sqlQuery = "INSERT INTO user (first_name, last_name, password, DoB, email, gender) VALUE (?, ?, ?, ?, ?, ?)";
-        $statement = $this->_dbHandle->prepare($sqlQuery);
-
-        $statement->bindParam(1, $FirstName);
-        $statement->bindParam(2, $LastName);
-        $statement->bindParam(3, $hashPassword);
-        $statement->bindParam(4, $DoB);
-        $statement->bindParam(5, $email);
-        $statement->bindParam(6, $gender);
-
-        $statement->execute();
-        echo '<h3 class="alert-success justify-content-center">Account Successfully Registered! <a href="index.php" class="btn-primary p-1">Login Now</a></h3>';
-
-
-    }
+        else
+        {
+                if(empty($gender))
+                {
+                    $gender='Prefer Not To Say';
+                }
+                $hashPassword = password_hash($pwd, PASSWORD_DEFAULT);
+                $sqlQuery = "INSERT INTO user (first_name, last_name, password, DoB, email, gender) VALUE (?, ?, ?, ?, ?, ?)";
+                $statement = $this->_dbHandle->prepare($sqlQuery);
+                $statement->bindParam(1, $FirstName);
+                $statement->bindParam(2, $LastName);
+                $statement->bindParam(3, $hashPassword);
+                $statement->bindParam(4, $DoB);
+                $statement->bindParam(5, $email);
+                $statement->bindParam(6, $gender);
+                $statement->execute();
+                return 1;
+        }
+    
+}
     public function loginUser($email, $password)
     {
         $email = trim($email);

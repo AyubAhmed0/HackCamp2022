@@ -10,9 +10,25 @@
 </head>
 <body>
 <div class="body-background">
+<?php
+    if($error == 1){
+        echo '<div class="alert alert-success alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">Account is now registered!</strong> <a href="index.php" class="btn-primary p-1">Login Now</a>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>';
+    } 
+    elseif($error == 2){ 
+        echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">Email is already registered!</strong>Please check spelling!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>';
+    }
+?>
     <div class="container-fluid d-flex justify-content-center align-items-center h-100">
         <div class="card cardBackgroud p-3 text-center py-4">
-            <img src="../images/pngegg3.png" width="460" height="345">
+            <img src="images/pngegg3.png" width="460" height="345">
             <h4 class="card-title">Create account</h4>
             <div> <span class="card-description">Already have an account?</span> <a href="../index.php" class="text-warning  text-decoration-none login">Login</a> </div>
             <form method="post" action="../signup.php" enctype="multipart/form-data">
