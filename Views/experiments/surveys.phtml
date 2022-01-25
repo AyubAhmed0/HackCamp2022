@@ -58,7 +58,7 @@
                                 <li class="tag__item"><i class="fas fa-tag mr-2 red2"></i>'.$row->getType().'</li>
                                 <li class="tag__item"><i class="fas fa-clock mr-2"></i>'.$row->getTotalTime().'</li>
                                 <li class="tag__item play red">
-                                    <a href="#"><i class="fas fa-play mr-2"></i>Do '.$row->getType().'</a>
+                                    <a href="viewExperiment.php?id=' . $row->getID() . '"><i class="fas fa-play mr-2"></i>Do '.$row->getType().'</a>
                                 </li>
                             </ul>
                         </div>

@@ -32,6 +32,8 @@ class User
         $statement->bindParam(6, $gender);
 
         $statement->execute();
+        echo '<h3 class="alert-success justify-content-center">Account Successfully Registered! <a href="index.php" class="btn-primary p-1">Login Now</a></h3>';
+
 
     }
     public function loginUser($email, $password)
