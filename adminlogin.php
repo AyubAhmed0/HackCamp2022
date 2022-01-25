@@ -13,7 +13,7 @@ if (isset($_POST["button-login"])) {
     //var_dump($password);
     $loginAdmin = new Admin();
     //$loginDataSet = $login->fetchUserPassword($userEmail, $password);
-    //$loginAdmin->loginAdmin($userEmail, $password);
+    $loginAdmin->loginAdmin($userEmail, $password);
     $error = $loginAdmin->loginAdmin($userEmail, $password);
 }
 if(isset($_SESSION['admin_email'])){

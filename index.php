@@ -13,7 +13,7 @@ if (isset($_POST["button-login"])) {
     //var_dump($password);
     $login = new User();
     //$loginDataSet = $login->fetchUserPassword($userEmail, $password);
-    //$login->loginUser($userEmail, $password);
+    $login->loginUser($userEmail, $password);
     $error = $login->loginUser($userEmail, $password);
 }
 if(isset($_SESSION['email'])){
