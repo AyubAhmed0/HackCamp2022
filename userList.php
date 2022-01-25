@@ -12,9 +12,11 @@ header('Location: logoutAdmin.php');
 //echo "User not found, error > user id and email do not exist in session";
 exit;
 }
+$showTable = true;
 if(isset($_POST['searchUsers']) && isset($_POST['toSearch'])){
     $searchValue =  $_POST['toSearch'];
     $searchResults = $currentAdmin->searchUser($searchValue);
+    $showTable = false;
 }
 $allUsers = $currentAdmin->getAllUsers();
 require 'Views/userList.phtml';

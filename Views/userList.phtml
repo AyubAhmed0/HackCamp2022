@@ -8,7 +8,7 @@ require 'Views/Template/adminHeader.phtml';
 
 
 
-<!--
+
 <div class="header body-background3">
 <div class="d-flex justify-content-between">
     <div class="p-2 align-self-center">
@@ -22,7 +22,7 @@ require 'Views/Template/adminHeader.phtml';
 	 </div>
   </div>
 </div>  
--->
+
 
 
 
@@ -37,44 +37,67 @@ require 'Views/Template/adminHeader.phtml';
   <div class="col col-md-auto float-right ml-1 ">
   <form method="POST" class="form-inline">
   <div class="input-group ">
-              <input type="text" class="form-control h-100" placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2" name="toSearch">
-              <div class="input-group-append ">
-    <button class="btn" type="submit" name="searchUsers"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <input type="text" class="form-control h-100" placeholder="Search"  name="toSearch">
+  </div>
+                <button class="btn" type="submit" name="searchUsers"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
   </div>
 </div>
-	</div>
-</div>
+
 
 <?php
-  if($searchResults != 1){
+ /* if($searchResults != 1)
+  {
+    echo '<div class="userTable">
+    <div class="row ml-3 mr-3">
+     
+   <div class="col">
+   <table class="table table-dark table-hover">
+     <thead>
+       <tr>
+           <th scope="col">First Name</th>
+           <th scope="col">Last Name</th>
+           <th scope="col">Email</th>
+       </tr>
+     </thead>';
     foreach($searchResults as $row)
     {
       echo '<br>';
-      echo $row['first_name'];
+      echo '<tbody>
+                  <tr>
+                      <td>'.$row['first_name'].'</td>
+                      <td>'.$row['last_name'].'</td>
+                      <td>'.$row['email'].'</td>
+                      <td><a href="userProfile.php?id=' . $row['id'] . '" class="btn-danger p-1">>>></a></td>
+                  </tr>
+          </tbody>';
     }
+
   }
   else {
     echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
                     <i class="bi-exclamation-octagon-fill"></i>
                     <strong class="mx-2">No Results matchin or conatining that word found!</strong>
               </div>';
-  }
+  }*/
   ?>
+  
+<?php
+      if($showTable == true){
+    
+echo '<div class="userTable">
+          <div class="row ml-3 mr-3">
+            
+          <div class="col">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+            <th scope="col">Full Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Total Experiments</th>
+              </tr>
+            </thead>';
 
-<div class="userTable">
- <div class="row ml-3 mr-3">
-	
-<div class="col">
-<table class="table table-dark table-hover">
-  <thead>
-    <tr>
-	<th scope="col">Full Name</th>
-    <th scope="col">Email</th>
-    <th scope="col">Total Experiments</th>
-    </tr>
-  </thead>
-  <?php
    foreach ($allUsers as $row) {
       $totalExp = $currentAdmin->getAllExperiments($row['id']);
   echo '<tbody>
@@ -87,6 +110,46 @@ require 'Views/Template/adminHeader.phtml';
         </tr>
   </tbody>';
   }
+}
+else 
+{
+  if($searchResults != 1)
+  {
+    echo '<div class="userTable">
+    <div class="row ml-3 mr-3">
+     
+   <div class="col">
+   <table class="table table-dark table-hover">
+     <thead>
+       <tr>
+           <th scope="col">First Name</th>
+           <th scope="col">Last Name</th>
+           <th scope="col">Email</th>
+       </tr>
+     </thead>';
+    foreach($searchResults as $row)
+    {
+      echo '<tbody>
+                  <tr>
+                      <td>'.$row['first_name'].'</td>
+                      <td>'.$row['last_name'].'</td>
+                      <td>'.$row['email'].'</td>
+                      <td><a href="userProfile.php?id=' . $row['id'] . '" class="btn-danger p-1">>>></a></td>
+                  </tr>
+          </tbody>';
+    }
+    $showTable = false;
+
+  }
+  else {
+    echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">No Results matchin or conatining that word found!</strong>
+              </div>';
+              $showTable = true;
+  }
+
+}
   ?>
 </table>
 </div>
@@ -98,6 +161,45 @@ require 'Views/Template/adminHeader.phtml';
 
 
 
+
+   <!-- jQuery CDN - Slim version (=without AJAX) -->
+
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<!-- Popper.JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS -->
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+
+            $('#sidebar').toggleClass('active');
+
+        });
+
+    });
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rows = document.querySelectorAll("tr[data-href]");
+
+        rows.forEach(row => {
+            row.addEventListener("click", () => {
+                window.location.href = row.dataset.href;
+            });
+        });
+    });
+</script>
 
 
 

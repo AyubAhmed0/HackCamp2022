@@ -164,19 +164,18 @@ class Admin
 
     public function getAllExperiments($id){
         try{
-            //query to get all the users, but not the one with the ID supplied
-            $getExperiments = $this->_dbHandle->prepare("SELECT COUNT('experimentID') FROM `userExperiment` WHERE userID = ?");
-            $getExperiments->execute([$id]);
-            //var_dump($get_users->fetchAll());
-            if($getExperiments->rowCount() > 0){
-                //fetches the rows and returns them as an object
-               return $getExperiments->fetchColumn();
-                
-                
-            }
-            else{
-                return 0;
-            }
+
+                        $getExperiments = $this->_dbHandle->prepare("SELECT COUNT('experimentID') FROM `userExperiment` WHERE userID = ?");
+                        $getExperiments->execute([$id]);
+                        if($getExperiments->rowCount() > 0)
+                        {
+                        return $getExperiments->fetchColumn();
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+            
         }
         catch (PDOException $e) {
             die($e->getMessage());
@@ -197,12 +196,9 @@ class Admin
     }
     public function searchUser($searchValue)
     {
-        $sqlQuery = "SELECT * FROM user WHERE first_name LIKE '%$searchValue%'";
-        /*OR lastName LIKE '%$receiveSearch%'
-        OR username LIKE '%$receiveSearch%'
-        OR email LIKE '%$receiveSearch%'
-        OR lat LIKE '%$receiveSearch%'
-        OR lng LIKE '%$receiveSearch%'";*/
+        $sqlQuery = "SELECT * FROM user WHERE first_name LIKE '%$searchValue%'
+                        OR last_name LIKE '%$searchValue%'
+                        OR email LIKE '%$searchValue%'";
         $searchResult = $this->_dbHandle->prepare($sqlQuery);
         $searchResult->execute();
         $sendResults = $searchResult->fetchAll(PDO::FETCH_ASSOC);
