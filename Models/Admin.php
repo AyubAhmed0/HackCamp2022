@@ -195,4 +195,21 @@ class Admin
         $statement->bindParam(6, $link);
         $statement->execute();
     }
+    public function searchUser($searchValue)
+    {
+        $sqlQuery = "SELECT * FROM user WHERE first_name, last_name, email LIKE '%$searchValue%'";
+        /*OR lastName LIKE '%$receiveSearch%'
+        OR username LIKE '%$receiveSearch%'
+        OR email LIKE '%$receiveSearch%'
+        OR lat LIKE '%$receiveSearch%'
+        OR lng LIKE '%$receiveSearch%'";*/
+        $searchResult = $this->_dbHandle->prepare($sqlQuery);
+        $searchResult->execute();
+        $sendResults = $searchResult->fetchAll(PDO::FETCH_ASSOC);
+        if ($searchResult->rowCount() > 0) {
+                return $sendResults;
+        } else {
+                return 1;
+        }
+    }
 }

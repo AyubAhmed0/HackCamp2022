@@ -33,10 +33,25 @@ require 'Views/Template/adminHeader.phtml';
 	</div>
 
   <div class="col col-md-auto">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  <form method="POST" class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="toSearch">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="searchUsers">Search</button>
   </form>
+  <?php
+  if($searchResults != 1){
+    foreach($searchResults as $row)
+    {
+      echo '<br>';
+      echo $row['first_name'];
+    }
+  }
+  else {
+    echo '<div class="alert alert-danger alert-dismissible d-flex align-items-center fade show">
+                    <i class="bi-exclamation-octagon-fill"></i>
+                    <strong class="mx-2">No Results matchin or conatining that word found!</strong>
+              </div>';
+  }
+  ?>
 	</div>
 </div>
 
