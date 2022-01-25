@@ -26,18 +26,27 @@ require 'Views/Template/adminHeader.phtml';
 
 
 
- <div class="row ml-3 mr-3 dashboard2">
+
+<div class="row ml-3 mr-3 dashboard2">
 	
-	<div class="col col-md-auto float-lg-left">
+	<div class="col float-lg-left">
 		<div class=""> <a><i class="fa fa-table" aria-hidden="true"></i></a> User List</div>
 	</div>
-
-  <div class="col col-md-auto">
+  <div class="col-md-auto">
+    </div>
+  <div class="col col-md-auto float-right ml-1 ">
   <form method="POST" class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="toSearch">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="searchUsers">Search</button>
-  </form>
-  <?php
+  <div class="input-group ">
+              <input type="text" class="form-control h-100" placeholder="Username" aria-label="Recipient's username" aria-describedby="basic-addon2" name="toSearch">
+              <div class="input-group-append ">
+    <button class="btn" type="submit" name="searchUsers"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+  </div>
+</div>
+	</div>
+</div>
+
+<?php
   if($searchResults != 1){
     foreach($searchResults as $row)
     {
@@ -52,8 +61,6 @@ require 'Views/Template/adminHeader.phtml';
               </div>';
   }
   ?>
-	</div>
-</div>
 
 <div class="userTable">
  <div class="row ml-3 mr-3">

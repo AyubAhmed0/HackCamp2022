@@ -197,7 +197,7 @@ class Admin
     }
     public function searchUser($searchValue)
     {
-        $sqlQuery = "SELECT * FROM user WHERE first_name, last_name, email LIKE '%$searchValue%'";
+        $sqlQuery = "SELECT * FROM user WHERE first_name LIKE '%$searchValue%'";
         /*OR lastName LIKE '%$receiveSearch%'
         OR username LIKE '%$receiveSearch%'
         OR email LIKE '%$receiveSearch%'
