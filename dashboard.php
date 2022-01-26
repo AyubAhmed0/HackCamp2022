@@ -23,5 +23,13 @@ if(isset($_POST["notificationB"]))
     header('Location: dashboard.php');
 }
 //$numberExpUser = $currenUserObj->findExpById($currenUserObj->getSession()['user_id']);
+$tableShow = true;
+$resultsSearch = [];
+if(isset($_POST['usersSearch']) && isset($_POST['searchTo']))
+{
+    $valueSearch =  $_POST['searchTo'];
+    $resultsSearch = $currenUserObj->searchExperiments($valueSearch);
+    $tableShow = false;
+}
 require 'Views/dashboardV.phtml';
 

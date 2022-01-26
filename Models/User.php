@@ -204,5 +204,18 @@ class User
         $statement->execute();
 
         }
+        public function searchExperiments($searchValue)
+    {
+        $sqlQuery = "SELECT * FROM experiment WHERE type LIKE '%$searchValue%'
+                        OR name LIKE '%$searchValue%'";
+        $searchResult = $this->_dbHandle->prepare($sqlQuery);
+        $searchResult->execute();
+        $sendResults = $searchResult->fetchAll(PDO::FETCH_ASSOC);
+        if ($searchResult->rowCount() > 0) {
+                return $sendResults;
+        } else {
+                return 1;
+        }
+    }
 
 }
